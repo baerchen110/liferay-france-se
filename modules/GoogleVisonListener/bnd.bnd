@@ -1,0 +1,4 @@
+Bundle-Activator: com.liferay.presales.france.GoogleVisionListenerActivator
+Bundle-Name: GoogleVisonListener
+Bundle-SymbolicName: com.liferay.presales.france
+Bundle-Version: 1.0.0
