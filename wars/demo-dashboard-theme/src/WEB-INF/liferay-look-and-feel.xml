@@ -13,6 +13,10 @@
 		<portlet-decorator id="borderless" name="Borderless">
 			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
 		</portlet-decorator>
+		<portlet-decorator id="decorate-no-title" name="Decorate but without title">
+			<!-- We want the same behavior than decorate for this reason we keep the same value here -->
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
 		<portlet-decorator id="decorate" name="Decorate">
 			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
