@@ -38,8 +38,6 @@ public class ProductDemoDashboardThemeTemplateContextContributor implements Temp
 			_log.error(e,e);
 		}
 		
-		_log.info(td.getLayout().getFriendlyURL() + " => " + isPublicPage);
-		
 		contextObjects.put("demo_is_private_page", !isPublicPage);
 		contextObjects.put("demo_is_public_page", isPublicPage);
 		

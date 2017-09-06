@@ -25,9 +25,11 @@ import com.liferay.product.demo.context.contributor.util.UrlUtil;
 	service = TemplateContextContributor.class
 )
 public class ProductDemoThemeTemplateContextContributor implements TemplateContextContributor {
-	
+		
+	private static final String REDUCTION_PERCENT_DEFAULT = "20";
 	private static Log _log = LogFactoryUtil.getLog(ProductDemoThemeTemplateContextContributor.class);
 	private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
+	private static final String CUSTOM_THEME_LOGO_REDUCTION_PERCENT = "custom-theme-logo-reduction-percent";
 	
 	@Override
 	public void prepare(Map<String, Object> contextObjects, HttpServletRequest request) {
@@ -36,6 +38,7 @@ public class ProductDemoThemeTemplateContextContributor implements TemplateConte
 		
 		boolean isRegularPage = true;
 		String css = StringPool.SPACE;
+		String reductionPercent = REDUCTION_PERCENT_DEFAULT;
 		
 		try {
 			
@@ -44,10 +47,17 @@ public class ProductDemoThemeTemplateContextContributor implements TemplateConte
 			css = ThemeCssUtil.getInstance().getCss(td.getThemeSetting(CUSTOM_THEME_MAIN_COLOR));
 			
 			
+			String percentSetting = td.getThemeSetting(CUSTOM_THEME_LOGO_REDUCTION_PERCENT);
+			if (Validator.isNotNull(percentSetting)) {
+				reductionPercent = percentSetting;
+			}
+			
+		
 		} catch (SystemException | PortalException e) {
 			_log.error(e,e);
 		}
 		
+		contextObjects.put("demo_logo_reduction_percent", reductionPercent);
 		contextObjects.put("demo_is_regular_page", isRegularPage);
 		contextObjects.put("demo_main_css", css);
 		

@@ -1,10 +1,9 @@
-<#assign rowPercent = theme_settings["custom-theme-logo-reduction-percent"] />
 <#assign stickyJqueryValues = ""/>
 
-<#if rowPercent??>
+<#if demo_logo_reduction_percent??>
 	<#assign
-		sizedHeight = site_logo_height - ((rowPercent?number / 100) * site_logo_height)?round
-		sizedWidth = site_logo_width - ((rowPercent?number / 100) * site_logo_width)?round	
+		sizedHeight = site_logo_height - ((demo_logo_reduction_percent?number / 100) * site_logo_height)?round
+		sizedWidth = site_logo_width - ((demo_logo_reduction_percent?number / 100) * site_logo_width)?round	
 		stickyJqueryValues = "data-sticky-width='${sizedWidth}' data-sticky-height='${sizedHeight}' data-sticky-top='25'"
 	/>
 </#if>
