@@ -1,6 +1,5 @@
 package com.liferay.product.demo.context.contributor;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,8 +26,8 @@ import com.liferay.product.demo.context.contributor.util.UrlUtil;
 public class ProductDemoThemeTemplateContextContributor implements TemplateContextContributor {
 	
 	private static Log _log = LogFactoryUtil.getLog(ProductDemoThemeTemplateContextContributor.class);
-	private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
-	
+	//private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
+	private static final String CUSTOM_THEME_MAIN_COLOR = "theme-color-apply";
 	@Override
 	public void prepare(Map<String, Object> contextObjects, HttpServletRequest request) {
 		
