@@ -13,6 +13,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.template.TemplateContextContributor;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.product.demo.context.contributor.util.ThemeCssUtil;
@@ -24,10 +25,13 @@ import com.liferay.product.demo.context.contributor.util.UrlUtil;
 	service = TemplateContextContributor.class
 )
 public class ProductDemoThemeTemplateContextContributor implements TemplateContextContributor {
-	
+		
+	private static final String REDUCTION_PERCENT_DEFAULT = "20";
 	private static Log _log = LogFactoryUtil.getLog(ProductDemoThemeTemplateContextContributor.class);
 	//private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
-	
+
+	private static final String CUSTOM_THEME_LOGO_REDUCTION_PERCENT = "custom-theme-logo-reduction-percent";
+
 	//correct name conflict
 	private static final String CUSTOM_THEME_MAIN_COLOR = "theme-color-apply";
 	@Override
@@ -35,18 +39,30 @@ public class ProductDemoThemeTemplateContextContributor implements TemplateConte
 		
 		ThemeDisplay td = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		
-		/*td.getTheme().getSettings();*/
+		boolean isRegularPage = true;
+		String css = StringPool.SPACE;
+		String reductionPercent = REDUCTION_PERCENT_DEFAULT;
 		
 		try {
-			contextObjects.put("demo_is_regular_page", !isHomePage(td.getLayout()) + "");
 			
+			isRegularPage = !isHomePage(td.getLayout());			
 			//Color variation CSS
-			String css = ThemeCssUtil.getInstance().getCss(td.getThemeSetting(CUSTOM_THEME_MAIN_COLOR));
-			contextObjects.put("demo_main_css", css);
+			css = ThemeCssUtil.getInstance().getCss(td.getThemeSetting(CUSTOM_THEME_MAIN_COLOR));
 			
+			
+			String percentSetting = td.getThemeSetting(CUSTOM_THEME_LOGO_REDUCTION_PERCENT);
+			if (Validator.isNotNull(percentSetting)) {
+				reductionPercent = percentSetting;
+			}
+			
+		
 		} catch (SystemException | PortalException e) {
 			_log.error(e,e);
 		}
+		
+		contextObjects.put("demo_logo_reduction_percent", reductionPercent);
+		contextObjects.put("demo_is_regular_page", isRegularPage);
+		contextObjects.put("demo_main_css", css);
 		
 	}
 	

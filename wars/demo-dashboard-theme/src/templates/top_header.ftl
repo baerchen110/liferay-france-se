@@ -11,32 +11,34 @@
 	        
 		        <ul class="nav navbar-top-links navbar-right">
 	
-					<#if !is_signed_in>
+					<#if !is_signed_in >
 						<li title="${sign_in_text}">
 							<a data-redirect="false" href="${sign_in_url}" rel="nofollow" id="sign-in"><i class="fa fa-power-off"></i></a>
 						</li>
 						
 					<#else>
-						<li title="<@liferay.language key="custom-theme-mails" />">
-							<a href="javascript:;" class="info-number">
-			                    <i class="fa fa-envelope-o"></i>
-			                    <span class="badge bg-green animated flash">6</span>
-		                    </a>
-	                    </li>
-	                    
-	                    <li title="<@liferay.language key="custom-theme-calendar-events" />">
-							<a href="javascript:;" class="info-number">
-			                    <i class="fa fa-calendar"></i>
-			                    <span class="badge bg-green animated flash">2</span>
-		                    </a>
-	                    </li>
-			            		            
-		            	<li title="<@liferay.language key="custom-theme-tasks" />">
-							<a href="javascript:;" class="info-number">
-						         <i class="fa fa-tasks"></i>
-						         <span class="badge bg-green animated flash">9</span>
-						     </a>
-						</li>
+						<#if demo_is_private_page?? && demo_is_private_page>
+							<li title="<@liferay.language key="custom-theme-mails" />">
+								<a href="javascript:;" class="info-number">
+				                    <i class="fa fa-envelope-o"></i>
+				                    <span class="badge bg-green animated flash">6</span>
+			                    </a>
+		                    </li>
+		                    
+		                    <li title="<@liferay.language key="custom-theme-calendar-events" />">
+								<a href="javascript:;" class="info-number">
+				                    <i class="fa fa-calendar"></i>
+				                    <span class="badge bg-green animated flash">2</span>
+			                    </a>
+		                    </li>
+				            		            
+			            	<li title="<@liferay.language key="custom-theme-tasks" />">
+								<a href="javascript:;" class="info-number">
+							         <i class="fa fa-tasks"></i>
+							         <span class="badge bg-green animated flash">9</span>
+							     </a>
+							</li>
+						</#if>
 						<li title="${sign_out_text}">
 							<a data-redirect="false" href="${sign_out_url}" rel="nofollow" id="sign-in">
 								<i class="fa fa-power-off"></i>
@@ -54,7 +56,7 @@
         
     </div>
 
-	<#if is_signed_in>
+<#if demo_is_private_page?? && demo_is_private_page && is_signed_in>
 
 		<div id="top-indicator" class="row tile_count animated slideInDown">
 
@@ -90,4 +92,6 @@
 	            </div>
 	            
 	    </div>
-    </#if>
+<#else>
+		<div id="top-indicator"></div>
+</#if>

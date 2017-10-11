@@ -81,8 +81,16 @@ html {
     a {
       color: #23c6c8;
     }
+    
     .setings-item a {
-      color: white;
+      color: #FFFFFF;
+    } 
+     
+    .button-holder,
+    .drag-drop-label {
+    	a {
+      		color: #FFFFFF;  
+    	}  
     }
     
   }

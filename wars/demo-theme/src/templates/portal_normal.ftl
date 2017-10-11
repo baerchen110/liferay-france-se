@@ -28,9 +28,11 @@
 	
 	<@liferay_util["include"] page=top_head_include />
 	
-	<style>
-		${demo_main_css}	
-	</style>
+	<#if demo_main_css??>
+		<style>
+			${demo_main_css}	
+		</style>
+	</#if>
 	
 </head>
 
@@ -117,24 +119,26 @@
 					</div>
 		</header>
 	
-		<#if demo_is_regular_page = "true">
-			<section class="theme-page-header">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<ul class="breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li class="active">Pages</li>
-							</ul>
+		<#if demo_is_regular_page??>
+			<#if demo_is_regular_page>
+				<section class="theme-page-header">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb">
+									<li><a href="#">Home</a></li>
+									<li class="active">Pages</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h1>${page_name}</h1>
+							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<h1>${page_name}</h1>
-						</div>
-					</div>
-				</div>
-			</section>	
+				</section>	
+			</#if>
 		</#if>
 		
 		<section id="content" class="container-fluid-1280">
