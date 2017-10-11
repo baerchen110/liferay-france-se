@@ -8,7 +8,7 @@
 	<theme id="demo-theme" name="Demo Theme">
 		<template-extension>ftl</template-extension>
 		<settings>
-		   <setting key="custom-theme-main-color" value="" type="text" configurable="true"/>
+		 <!--   <setting key="custom-theme-main-color" value="" type="text" configurable="true"/>--> 
 		   <setting key="custom-theme-logo-reduction-percent" value="25" type="text" configurable="true"/>
 		   <setting key="theme-color-apply" value="" type="text" configurable="true"/>
 		</settings>

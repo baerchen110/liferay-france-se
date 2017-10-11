@@ -27,6 +27,8 @@ public class ProductDemoThemeTemplateContextContributor implements TemplateConte
 	
 	private static Log _log = LogFactoryUtil.getLog(ProductDemoThemeTemplateContextContributor.class);
 	//private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
+	
+	//correct name conflict
 	private static final String CUSTOM_THEME_MAIN_COLOR = "theme-color-apply";
 	@Override
 	public void prepare(Map<String, Object> contextObjects, HttpServletRequest request) {
