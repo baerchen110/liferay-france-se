@@ -22,10 +22,6 @@
 	<link href="${themeDisplay.getPathThemeRoot()}/css/template/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" /> 
 	<link href="${themeDisplay.getPathThemeRoot()}/css/template/owl.carousel/assets/owl.theme.default.css" rel="stylesheet" />  
 	
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
-		
-	<script src="${javascript_folder}/template/modernizr.min.js"></script>	
-	
 	<@liferay_util["include"] page=top_head_include />
 	
 	<#if demo_main_css??>
@@ -286,6 +282,8 @@
 		
 		<script src="${javascript_folder}/template/owl.carousel/owl.carousel.min.js"></script>
 		
+		<script src="${javascript_folder}/template/modernizr.min.js"></script>
+		
 		
 		<!-- Restore the AMD loader -->
 		<script>
@@ -354,3 +352,4 @@
 </body>
 
 </html>
+

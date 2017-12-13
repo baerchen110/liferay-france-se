@@ -1,0 +1,4 @@
+Bundle-Name: product-demo-audit-router
+Bundle-SymbolicName: product.demo.audit.router
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.product.demo.security.audit.router

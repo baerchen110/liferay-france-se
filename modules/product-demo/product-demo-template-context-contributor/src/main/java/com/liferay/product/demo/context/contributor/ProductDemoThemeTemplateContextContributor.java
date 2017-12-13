@@ -30,10 +30,10 @@ public class ProductDemoThemeTemplateContextContributor implements TemplateConte
 	private static Log _log = LogFactoryUtil.getLog(ProductDemoThemeTemplateContextContributor.class);
 	//private static final String CUSTOM_THEME_MAIN_COLOR = "custom-theme-main-color";
 
-	private static final String CUSTOM_THEME_LOGO_REDUCTION_PERCENT = "custom-theme-logo-reduction-percent";
+	private static final String CUSTOM_THEME_LOGO_REDUCTION_PERCENT = "custom-demo-theme-logo-reduction-percent";
 
 	//correct name conflict
-	private static final String CUSTOM_THEME_MAIN_COLOR = "theme-color-apply";
+	private static final String CUSTOM_THEME_MAIN_COLOR = "custom-demo-theme-color-apply";
 	@Override
 	public void prepare(Map<String, Object> contextObjects, HttpServletRequest request) {
 		
