@@ -12,7 +12,7 @@
 
 	css_class = css_class + " " + htmlUtil.escape(theme_display.getColorScheme().getCssClass()) + " yui3-skin-sam"
 	
-	page_name = theme_display.getLayout().getName()	
+	page_name = theme_display.getLayout().getName(locale)	
 	
 	current_url = themeDisplay.getURLCurrent()
 	
